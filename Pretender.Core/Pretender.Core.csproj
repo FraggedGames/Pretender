@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Pretender</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Doug Wilson</Authors>
+    <Company>Fragged Games</Company>
+    <Product>Pretender</Product>
+    <Description>WoW like RPG Engine</Description>
+    <Copyright>Copyright 2019 Fragged Games, Doug Wilson</Copyright>
+    <PackageProjectUrl>https://fragged.com/pretender</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/FraggedGames/Pretender</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning" Version="2.3.138">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>
