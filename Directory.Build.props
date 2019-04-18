@@ -6,4 +6,17 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Pretender</RootNamespace>
+    <Authors>Doug Wilson, Shyloh Wilson</Authors>
+    <Company>Fragged Games</Company>
+    <Product>Pretender</Product>
+    <Description>WoW like RPG Engine</Description>
+    <Copyright>Copyright 2019 Doug Wilson, Shyloh Wilson</Copyright>
+    <PackageProjectUrl>https://fragged.com/pretender</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/FraggedGames/Pretender</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
 </Project>
