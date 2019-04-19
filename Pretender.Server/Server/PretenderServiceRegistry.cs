@@ -27,6 +27,11 @@ namespace Pretender.Server
     {
         public PretenderServiceRegistry()
         {
+            //Scan(scan =>
+            //{
+            //    scan.TheCallingAssembly();
+            //    scan.WithDefaultConventions();
+            //});
         }
     }
 }

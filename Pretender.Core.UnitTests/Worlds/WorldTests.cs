@@ -19,6 +19,8 @@
  *
  ************************************************************************/
 
+using Moq;
+using Pretender.Entities.Players;
 using Shouldly;
 using Xunit;
 
@@ -33,13 +35,17 @@ namespace Pretender.Worlds
 
             world.ShouldNotBeNull();
         }
-    }
 
-    internal class World : IWorld
-    {
-    }
+        [Fact]
+        public void Can_add_Player_to_World()
+        {
+            var mock = new Mock<IPlayer>();
+            IWorld world = new World();
 
-    internal interface IWorld
-    {
+
+            world.AddPlayer(mock.Object);
+
+            world.Players.Count.ShouldBe(1);
+        }
     }
 }

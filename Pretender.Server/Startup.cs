@@ -19,11 +19,14 @@
  *
  ************************************************************************/
 
+using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Pretender.Server
 {
@@ -39,7 +42,12 @@ namespace Pretender.Server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            services.AddMvc()
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+            .AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<Startup>());
+
             services.Configure<PretenderConfig>(Configuration.GetSection(nameof(PretenderConfig)));
         }
 
