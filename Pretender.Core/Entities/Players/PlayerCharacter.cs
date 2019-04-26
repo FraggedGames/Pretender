@@ -22,18 +22,18 @@
  ************************************************************************/
 
 using System;
-using Pretender.Entities.Players;
+using Pretender.Entities.Attributes;
 
-namespace Pretender.Demo.Library
+namespace Pretender.Entities.Players
 {
-    public interface IPlayerCharacter : IPlayer
+    public class PlayerCharacter : Player, IPlayerCharacter
     {
-        UInt32 Agility { get; }
-        UInt32 Armor { get; }
-        UInt32 Health { get; }
-        UInt32 Intellect { get; }
-        UInt32 Mana { get; }
-        UInt32 Stamina { get; }
-        UInt32 Strength { get; }
+        public UInt32 Agility => Attributes.GetValue<Agility, UInt32>(a => a.Current);
+        public UInt32 Armor => Attributes.GetValue<Armor, UInt32>(a => a.Current);
+        public UInt32 Health => Attributes.GetValue<Health, UInt32>(a => a.Current);
+        public UInt32 Intellect => Attributes.GetValue<Intellect, UInt32>(a => a.Current);
+        public UInt32 Mana => Attributes.GetValue<Mana, UInt32>(a => a.Current);
+        public UInt32 Stamina => Attributes.GetValue<Stamina, UInt32>(a => a.Current);
+        public UInt32 Strength => Attributes.GetValue<Strength, UInt32>(a => a.Current);
     }
 }

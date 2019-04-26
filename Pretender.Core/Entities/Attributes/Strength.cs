@@ -1,6 +1,4 @@
-﻿extensions: designer.cs generated.cs
-extensions: .cs .js .cpp .h
-/*******************************************************************************
+﻿/*******************************************************************************
  * Copyright © 2019 Doug Wilson https://dkw.io
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a 
@@ -23,7 +21,16 @@ extensions: .cs .js .cpp .h
  *
  ************************************************************************/
 
-extensions: .aspx .ascx
-<%-- Copyright © 2019 Doug Wilson https://dkw.io --%>
-extensions:  .cshtml .xml .config .xsd
-<!-- Copyright © 2019 Doug Wilson https://dkw.io -->
+using System;
+using Pretender.Entities.Attributes;
+
+namespace Pretender.Entities.Attributes
+{
+    public class Strength : EntityAttribute
+    {
+        public Strength(UInt32 value)
+        {
+            SetBase(value);
+        }
+    }
+}

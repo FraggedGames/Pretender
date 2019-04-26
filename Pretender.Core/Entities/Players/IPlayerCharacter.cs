@@ -22,15 +22,17 @@
  ************************************************************************/
 
 using System;
-using Pretender.Entities.Attributes;
 
-namespace Pretender.Demo.Library.Attributes
+namespace Pretender.Entities.Players
 {
-    public class Intellect : EntityAttribute
+    public interface IPlayerCharacter : IPlayer
     {
-        public Intellect(UInt32 value)
-        {
-            SetBase(value);
-        }
+        UInt32 Agility { get; }
+        UInt32 Armor { get; }
+        UInt32 Health { get; }
+        UInt32 Intellect { get; }
+        UInt32 Mana { get; }
+        UInt32 Stamina { get; }
+        UInt32 Strength { get; }
     }
 }

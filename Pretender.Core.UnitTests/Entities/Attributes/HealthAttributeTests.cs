@@ -21,35 +21,56 @@
  *
  ************************************************************************/
 
-using System;
-using Pretender.Entities.Attributes;
+using Pretender.Entities.Combat;
+using Pretender.Items.Equipment;
 using Pretender.Items.Equipment.Armor;
+using Shouldly;
+using Xunit;
 
-namespace Pretender.Demo.Library.Attributes
+namespace Pretender.Entities.Attributes
 {
-    public class Armor : EntityAttribute
+    public class HealthAttributeTests 
     {
-        public override UInt32 Calculate()
+        [Fact]
+        public void HealthAttribute_has_sensible_defaults()
         {
-            Total = Base;
-            foreach (var item in Entity.Equipment)
-            {
-                if (item is IArmor armor)
-                {
-                    Total += armor.Armor;
-                }
-            }
+            var health = new Health().SetEntity(new Entity());
 
-            return Total;
+            health.Base.ShouldBe(100u);
+            health.Total.ShouldBe(100u);
+            health.Current.ShouldBe(100u);
         }
 
-        protected override void Subscribe()
+        [Fact]
+        public void Health_Total_is_increased_when_Armor_with_Stamina_is_equipped()
         {
-            Entity.EquipmentChanged += Entity_EquipmentChanged;
+            // Arrange
+            IEntity entity = new Entity();
+            var health = new Health().SetEntity(entity);
+            var starting = health.Total;
+
+            var chest = new ArmorBuilder().For(EquipmentSlot.Chest).OutOf(Material.Cloth).WithStamina(100).Build();
+
+            // Act
+            entity.Equipment.Equip(chest);
+
+            // Assert
+            health.Total.ShouldBeGreaterThan(starting);
         }
 
-        protected override void Unsubscribe() => Entity.EquipmentChanged -= Entity_EquipmentChanged;
+        [Fact]
+        public void Current_Health_is_reduced_when_Entity_takes_damage()
+        {
+            // Arrange
+            IEntity entity = new Entity();
+            var health = new Health().SetEntity(entity);
+            var starting = health.Current;
 
-        private void Entity_EquipmentChanged(Object sender, EventArgs e) => Calculate();
+            // Act
+            entity.OnDamageReceived(new Damage(10));
+
+            // Assert
+            health.Current.ShouldBe(starting - 10);
+        }
     }
 }

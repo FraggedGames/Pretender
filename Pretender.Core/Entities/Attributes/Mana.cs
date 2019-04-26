@@ -24,11 +24,11 @@
 using System;
 using Pretender.Entities.Attributes;
 
-namespace Pretender.Demo.Library.Attributes
+namespace Pretender.Entities.Attributes
 {
-    public class Strength : EntityAttribute
+    public class Mana : EntityAttribute
     {
-        public Strength(UInt32 value)
+        public Mana(UInt32 value)
         {
             SetBase(value);
         }

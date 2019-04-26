@@ -22,43 +22,43 @@
  ************************************************************************/
 
 using System;
-using Pretender.Demo.Library.Attributes;
-using Pretender.Entities.Combat.Abilities.Rogues;
-using Pretender.Entities.Players;
+using Pretender.Entities.Attributes;
+using Pretender.Entities;
+using Pretender.Items.Equipment;
 using Pretender.Items.Equipment.Armor;
-using Pretender.Items.Equipment.Weapons;
 using Shouldly;
 using Xunit;
 
-namespace Pretender.Demo.Library
+namespace Pretender.Entities.Attributes
 {
-    public class PlayerCharacterBuilderTests
+    public class ArmorAttributeTests
     {
         [Fact]
-        public void Can_build_a_PlayerCharacter()
+        public void ArmorAttribute_has_sensible_defaults()
         {
-            var pc = new PlayerBuilder<PlayerCharacter>()
-                .WithAttributes(new Agility(14), new Stamina(12), new Strength(10))
+            var entity = new Entity();
+            var armor = new Armor().SetEntity(entity);
 
-                .Attribute<Armor>()
-                .Attribute<Health>()
+            armor.Base.ShouldBe(0u);
+            armor.Total.ShouldBe(0u);
+            armor.Current.ShouldBe(0u);
+        }
 
-                .Ability<SinisterStrike>()
-                .Ability<Stealth>()
+        [Fact]
+        public void Armor_Total_is_increased_when_Armor_is_equipped()
+        {
+            // Arrange
+            IEntity entity = new Entity();
+            var armor = new Armor().SetEntity(entity);
+            var starting = armor.Total;
 
-                .Wears(Material.Cloth | Material.Leather)
-                .Wields(WeaponType.Dagger | WeaponType.FistWeapon | WeaponType.OneHandedSword)
+            var chest = new ArmorBuilder().For(EquipmentSlot.Chest).OutOf(Material.Cloth).WithArmor(100).Build();
 
-                .Equip(new Shirt(), new Pants(), new Boots())
-                .Build();
+            // Act
+            entity.Equipment.Equip(chest);
 
-            pc.Agility.ShouldBe(14u);
-            pc.Armor.ShouldBe(8u);
-            pc.Health.ShouldBe(100u);
-            pc.Intellect.ShouldBe(0u);
-            pc.Mana.ShouldBe(0u);
-            pc.Stamina.ShouldBe(12u);
-            pc.Strength.ShouldBe(10u);
+            // Assert
+            armor.Total.ShouldBe(starting + chest.Armor);
         }
     }
 }

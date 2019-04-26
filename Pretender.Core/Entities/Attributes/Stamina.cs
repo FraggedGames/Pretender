@@ -24,11 +24,11 @@
 using System;
 using Pretender.Entities.Attributes;
 
-namespace Pretender.Demo.Library.Attributes
+namespace Pretender.Entities.Attributes
 {
-    public class Agility : EntityAttribute
+    public class Stamina : EntityAttribute
     {
-        public Agility(UInt32 value)
+        public Stamina(UInt32 value)
         {
             SetBase(value);
         }

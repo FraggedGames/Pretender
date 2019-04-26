@@ -21,58 +21,57 @@
  *
  ************************************************************************/
 
-using Pretender.Demo.Library.Attributes;
-using Pretender.Entities;
-using Pretender.Entities.Combat;
-using Pretender.Items.Equipment;
-using Pretender.Items.Equipment.Armor;
+using System;
+using Pretender.Entities.Traits;
 using Shouldly;
 using Xunit;
 
-namespace Pretender.Demo.Library
+namespace Pretender.Entities.Attributes
 {
-    public class HealthAttributeTests
+    public class StatTests
     {
         [Fact]
-        public void HealthAttribute_has_sensible_defaults()
+        public void Stat_test()
         {
-            var health = new Health().SetEntity(new Entity());
+            var strength = new Trait(10);
 
-            health.Base.ShouldBe(100u);
-            health.Total.ShouldBe(100u);
-            health.Current.ShouldBe(100u);
+            strength.Total.ShouldBe(10);
         }
 
         [Fact]
-        public void Health_Total_is_increased_when_Armor_with_Stamina_is_equipped()
+        public void Stat_with_Bonus_test()
         {
-            // Arrange
-            IEntity entity = new Entity();
-            var health = new Health().SetEntity(entity);
-            var starting = health.Total;
+            var strength = new Trait(10);
+            strength.AddBonus(new TraitBonus(10));
 
-            var chest = new ArmorBuilder().For(EquipmentSlot.Chest).OutOf(Material.Cloth).WithStamina(100).Build();
-
-            // Act
-            entity.Equipment.Equip(chest);
-
-            // Assert
-            health.Total.ShouldBeGreaterThan(starting);
+            strength.Total.ShouldBe(20);
         }
 
         [Fact]
-        public void Current_Health_is_reduced_when_Entity_takes_damage()
+        public void Stat_with_positive_percentage_Bonus_test()
         {
-            // Arrange
-            IEntity entity = new Entity();
-            var health = new Health().SetEntity(entity);
-            var starting = health.Current;
+            new Trait(10).AddBonus(new TraitBonus(0.2d)).Total.ShouldBe(12);
+            new Trait(10).AddBonus(new TraitBonus(1.0d)).Total.ShouldBe(10);
+            new Trait(10).AddBonus(new TraitBonus(1.5d)).Total.ShouldBe(15);
+            new Trait(10).AddBonus(new TraitBonus(2.0d)).Total.ShouldBe(20);
+        }
 
-            // Act
-            entity.OnDamageReceived(new Damage(10));
+        [Fact]
+        public void Stat_with_negative_percentage_Bonus_test()
+        {
+            new Trait(10).AddBonus(new TraitBonus(-0.2d)).Total.ShouldBe(8);
+            new Trait(10).AddBonus(new TraitBonus(-1.0d)).Total.ShouldBe(0);
+            new Trait(10).AddBonus(new TraitBonus(-1.5d)).Total.ShouldBe(0);
+            new Trait(10).AddBonus(new TraitBonus(-2.0d)).Total.ShouldBe(0);
+        }
 
-            // Assert
-            health.Current.ShouldBe(starting - 10);
+        [Fact]
+        public void TimedBonus_test()
+        {
+            var strength = new Trait(10);
+            strength.Total.ShouldBe(10);
+
+            strength.AddBonus(new TimedTraitBonus(TimeSpan.FromSeconds(5), 10));
         }
     }
 }
