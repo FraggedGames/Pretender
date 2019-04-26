@@ -28,7 +28,7 @@ namespace Pretender.Demo.Library.Attributes
 {
     public class Mana : EntityAttribute
     {
-        public Mana(Int32 value)
+        public Mana(UInt32 value)
         {
             SetBase(value);
         }

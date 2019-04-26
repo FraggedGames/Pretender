@@ -32,7 +32,7 @@ namespace Pretender.Items
         {
             IItem item = new Item();
 
-            item.Id.ShouldBe(0);
+            item.ID.ShouldBe(0);
         }
     }
 }

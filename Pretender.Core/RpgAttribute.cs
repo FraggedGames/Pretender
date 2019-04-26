@@ -25,12 +25,12 @@ namespace Pretender
 {
     public abstract class RpgAttribute : IRpgAttribute
     {
-        public Int32 Total { get; protected set; }
-        public TimeSpan Duration { get; set; }
-        public Int32 Speed { get; set; }
-        public Int32 Leech { get; }
-        public Boolean Indestructable { get; }
-        public Int32 Current { get; protected set; }
-        public virtual Int32 Base { get; set; }
+        public virtual UInt32 Total { get; protected set; }
+        public virtual TimeSpan Duration { get; set; }
+        public virtual UInt32 Speed { get; set; }
+        public virtual UInt32 Leech { get; }
+        public virtual Boolean Indestructable { get; }
+        public virtual UInt32 Current { get; protected set; }
+        public virtual UInt32 Base { get; set; }
     }
 }

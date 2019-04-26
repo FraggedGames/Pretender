@@ -36,13 +36,13 @@ namespace Pretender.Entities.Attributes
             return this;
         }
 
-        public IEntityAttribute SetBase(Int32 value)
+        public IEntityAttribute SetBase(UInt32 value)
         {
             Base = value;
             return this;
         }
 
-        public virtual Int32 Calculate()
+        public virtual UInt32 Calculate()
         {
             Total = Base;
             Current = Base;
@@ -58,7 +58,7 @@ namespace Pretender.Entities.Attributes
         {
         }
 
-        protected virtual void Dispose(bool disposing)
+        protected virtual void Dispose(Boolean disposing)
         {
             if (!_disposed)
             {

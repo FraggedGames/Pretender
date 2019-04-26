@@ -52,13 +52,13 @@ namespace Pretender.Demo.Library
                 .Equip(new Shirt(), new Pants(), new Boots())
                 .Build();
 
-            pc.Agility.ShouldBe(14);
-            pc.Armor.ShouldBe(8);
-            pc.Health.ShouldBe(100);
-            pc.Intellect.ShouldBe(0);
-            pc.Mana.ShouldBe(0);
-            pc.Stamina.ShouldBe(12);
-            pc.Strength.ShouldBe(10);
+            pc.Agility.ShouldBe(14u);
+            pc.Armor.ShouldBe(8u);
+            pc.Health.ShouldBe(100u);
+            pc.Intellect.ShouldBe(0u);
+            pc.Mana.ShouldBe(0u);
+            pc.Stamina.ShouldBe(12u);
+            pc.Strength.ShouldBe(10u);
         }
     }
 }

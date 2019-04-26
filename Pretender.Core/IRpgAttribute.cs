@@ -25,12 +25,12 @@ namespace Pretender
 {
     public interface IRpgAttribute
     {
-        Int32 Total { get; }
-        Int32 Current { get; }
-        Int32 Base { get; }
+        UInt32 Total { get; }
+        UInt32 Current { get; }
+        UInt32 Base { get; }
         TimeSpan Duration { get; }
-        Int32 Speed { get; }
-        Int32 Leech { get; }
+        UInt32 Speed { get; }
+        UInt32 Leech { get; }
         Boolean Indestructable { get; }
     }
 }

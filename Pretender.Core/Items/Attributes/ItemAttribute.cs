@@ -25,7 +25,7 @@ namespace Pretender.Items.Attributes
 {
     public abstract class ItemAttribute : RpgAttribute, IItemAttribute
     {
-        protected ItemAttribute(Int32 baseValue)
+        protected ItemAttribute(UInt32 baseValue)
         {
             if (baseValue < 0) { throw new ArgumentOutOfRangeException(); }
             Base = baseValue;

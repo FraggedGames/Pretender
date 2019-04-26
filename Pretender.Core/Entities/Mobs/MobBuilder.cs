@@ -25,7 +25,7 @@ namespace Pretender.Entities.Mobs
 {
     public class MobBuilder
     {
-        public Mob Build()
+        public IEntity Build()
         {
             return new Mob();
         }

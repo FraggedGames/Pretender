@@ -31,9 +31,9 @@ namespace Pretender.Items.Equipment.Armor
         {
             IArmor armor = new ArmorItem();
 
-            armor.Id.ShouldBe(0);
-            armor.Armor.ShouldBe(0);
-            armor.Stamina.ShouldBe(0);
+            armor.ID.ShouldBe(0);
+            armor.Armor.ShouldBe(0u);
+            armor.Stamina.ShouldBe(0u);
         }
     }
 }

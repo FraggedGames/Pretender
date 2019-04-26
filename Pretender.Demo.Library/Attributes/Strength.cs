@@ -28,7 +28,7 @@ namespace Pretender.Demo.Library.Attributes
 {
     public class Strength : EntityAttribute
     {
-        public Strength(Int32 value)
+        public Strength(UInt32 value)
         {
             SetBase(value);
         }

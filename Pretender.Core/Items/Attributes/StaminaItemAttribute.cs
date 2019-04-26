@@ -25,7 +25,7 @@ namespace Pretender.Items.Attributes
 {
     public class StaminaItemAttribute : ItemAttribute
     {
-        public StaminaItemAttribute(Int32 stamina) : base(stamina)
+        public StaminaItemAttribute(UInt32 stamina) : base(stamina)
         {
         }
     }

@@ -32,7 +32,7 @@ namespace Pretender.Items.Equipment.Armor
         {
             var armor = new ArmorBuilder().WithStamina(100).Build();
 
-            armor.Stamina.ShouldBe(100);
+            armor.Stamina.ShouldBe(100u);
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace Pretender.Items.Equipment.Armor
         {
             var armor = new ArmorBuilder().WithArmor(100).Build();
 
-            armor.Armor.ShouldBe(100);
+            armor.Armor.ShouldBe(100u);
         }
     }
 }

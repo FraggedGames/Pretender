@@ -25,7 +25,7 @@ namespace Pretender.Items.Attributes
 {
     public class ArmorItemAttribute : ItemAttribute
     {
-        public ArmorItemAttribute(Int32 armor) : base(armor)
+        public ArmorItemAttribute(UInt32 armor) : base(armor)
         {
         }
     }

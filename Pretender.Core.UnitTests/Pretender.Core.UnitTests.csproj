@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\Players\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Pretender.Core\Pretender.Core.csproj" />
   </ItemGroup>
 
@@ -29,6 +25,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Players\" />
   </ItemGroup>
 
 </Project>

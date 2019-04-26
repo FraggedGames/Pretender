@@ -20,6 +20,9 @@
  ************************************************************************/
 
 using Lamar;
+using Microsoft.Extensions.Hosting;
+using Pretender.GameEngine;
+using Pretender.World;
 
 namespace Pretender.Server
 {
@@ -27,11 +30,14 @@ namespace Pretender.Server
     {
         public PretenderServiceRegistry()
         {
-            //Scan(scan =>
-            //{
-            //    scan.TheCallingAssembly();
-            //    scan.WithDefaultConventions();
-            //});
+            Scan(scan =>
+            {
+                scan.TheCallingAssembly();
+                scan.WithDefaultConventions();
+                scan.AddAllTypesOf<IHostedService>();
+            });
+
+            ForSingletonOf<IGame>().Use<Game>();
         }
     }
 }

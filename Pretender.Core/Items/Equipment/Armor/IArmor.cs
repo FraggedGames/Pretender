@@ -26,6 +26,5 @@ namespace Pretender.Items.Equipment.Armor
     public interface IArmor : IEquipableItem
     {
         Material Material { get; }
-        Int32 Armor { get; }
     }
 }

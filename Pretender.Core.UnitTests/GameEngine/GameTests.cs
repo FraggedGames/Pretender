@@ -19,21 +19,51 @@
  *
  ************************************************************************/
 
-using System;
+using Moq;
+using Pretender.Entities.Players;
 using Shouldly;
+using System;
 using Xunit;
-
-namespace Pretender.Items.Equipment.Weapons
+namespace Pretender.GameEngine
 {
-    public class WeaponBuilderTests
+    public class GameTests
     {
         [Fact]
-        public void Can_build_a_Dagger_with_Damage()
+        public void Can_instantiate_a_Game()
         {
-            var weapon = new WeaponBuilder().Dagger(10).Build();
+            using (IGame game = new Game(new GameOptions()))
+            {
+                game.ShouldNotBeNull();
+            }
+        }
 
-            weapon.Damage.Amount.ShouldBe(10u);
-            weapon.WeaponType.ShouldBe(WeaponType.Dagger);
+        [Fact]
+        public void Can_add_a_Player_to_a_Game()
+        {
+            var mock = new Mock<IPlayer>();
+
+            using (IGame game = new Game(new GameOptions()))
+            {
+                game.AddPlayer(mock.Object);
+
+                game.Players.Count.ShouldBe(1);
+            }
+        }
+
+        [Fact]
+        public void Player_are_disposed_when_the_Game_is_disposed()
+        {
+            var mock = new Mock<IPlayer>();
+            mock.Setup(m => m.Dispose()).Verifiable();
+
+            using (IGame game = new Game(new GameOptions()))
+            {
+                game.AddPlayer(mock.Object);
+
+                game.Players.Count.ShouldBe(1);
+            }
+
+            mock.Verify();
         }
     }
 }

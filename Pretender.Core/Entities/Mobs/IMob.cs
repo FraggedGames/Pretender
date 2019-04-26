@@ -21,7 +21,7 @@
 
 namespace Pretender.Entities.Mobs
 {
-    public interface IMob
+    public interface IMob : IEntity
     {
     }
 }

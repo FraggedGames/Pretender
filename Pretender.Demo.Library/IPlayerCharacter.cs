@@ -28,12 +28,12 @@ namespace Pretender.Demo.Library
 {
     public interface IPlayerCharacter : IPlayer
     {
-        Int32 Agility { get; }
-        Int32 Armor { get; }
-        Int32 Health { get; }
-        Int32 Intellect { get; }
-        Int32 Mana { get; }
-        Int32 Stamina { get; }
-        Int32 Strength { get; }
+        UInt32 Agility { get; }
+        UInt32 Armor { get; }
+        UInt32 Health { get; }
+        UInt32 Intellect { get; }
+        UInt32 Mana { get; }
+        UInt32 Stamina { get; }
+        UInt32 Strength { get; }
     }
 }

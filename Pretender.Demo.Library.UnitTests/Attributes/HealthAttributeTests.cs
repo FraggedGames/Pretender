@@ -38,9 +38,9 @@ namespace Pretender.Demo.Library
         {
             var health = new Health().SetEntity(new Entity());
 
-            health.Base.ShouldBe(100);
-            health.Total.ShouldBe(100);
-            health.Current.ShouldBe(100);
+            health.Base.ShouldBe(100u);
+            health.Total.ShouldBe(100u);
+            health.Current.ShouldBe(100u);
         }
 
         [Fact]

@@ -20,6 +20,7 @@
  ************************************************************************/
 
 using System;
+using System.Threading.Tasks;
 
 namespace Pretender.Entities.Players
 {
@@ -31,6 +32,5 @@ namespace Pretender.Entities.Players
         }
 
         public IInventoryManager Inventory { get; }
-        public Int32 ID { get; }
     }
 }

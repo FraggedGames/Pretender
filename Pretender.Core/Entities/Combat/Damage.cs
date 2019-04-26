@@ -25,14 +25,14 @@ namespace Pretender.Entities.Combat
 {
     public class Damage : IDamage
     {
-        public Damage(Int32 amount, DamageType damageType = DamageType.Physical)
+        public Damage(UInt32 amount, DamageType damageType = DamageType.Physical)
         {
             if (amount < 0) { throw new ArgumentOutOfRangeException(); }
             Amount = amount;
             DamageType = damageType;
         }
 
-        public Int32 Amount { get; }
+        public UInt32 Amount { get; }
         public DamageType DamageType { get; }
     }
 }

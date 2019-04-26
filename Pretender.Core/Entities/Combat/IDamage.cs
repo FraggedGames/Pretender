@@ -25,7 +25,7 @@ namespace Pretender.Entities.Combat
 {
     public interface IDamage
     {
-        Int32 Amount { get; }
+        UInt32 Amount { get; }
         DamageType DamageType { get; }
     }
 }

@@ -28,7 +28,7 @@ namespace Pretender.Demo.Library.Attributes
 {
     public class Agility : EntityAttribute
     {
-        public Agility(Int32 value)
+        public Agility(UInt32 value)
         {
             SetBase(value);
         }

@@ -1,7 +1,7 @@
 ﻿using Pretender.Entities.Players;
 using System.Collections.Generic;
 
-namespace Pretender.Worlds
+namespace Pretender.World
 {
     public interface IWorld
     {

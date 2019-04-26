@@ -29,7 +29,7 @@ namespace Pretender.Demo.Library.Attributes
 {
     public class Armor : EntityAttribute
     {
-        public override Int32 Calculate()
+        public override UInt32 Calculate()
         {
             Total = Base;
             foreach (var item in Entity.Equipment)

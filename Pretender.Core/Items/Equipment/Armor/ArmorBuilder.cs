@@ -29,8 +29,8 @@ namespace Pretender.Items.Equipment.Armor
         private EquipmentSlot _equipmentSlot;
         private BindsOn _bindsOn = BindsOn.Equip;
         private Material _material;
-        private Int32 _armor;
-        private Int32 _stamina;
+        private UInt32 _armor;
+        private UInt32 _stamina;
 
         public IArmor Build()
         {
@@ -65,14 +65,14 @@ namespace Pretender.Items.Equipment.Armor
             return this;
         }
 
-        public ArmorBuilder WithStamina(Int32 stamina)
+        public ArmorBuilder WithStamina(UInt32 stamina)
         {
             if (stamina < 0) { throw new ArgumentOutOfRangeException(nameof(stamina), "Stamina value must be 0 or larger."); }
             _stamina = stamina;
             return this;
         }
 
-        public ArmorBuilder WithArmor(Int32 armor)
+        public ArmorBuilder WithArmor(UInt32 armor)
         {
             if (armor < 0) { throw new ArgumentOutOfRangeException(nameof(armor), "Armor value must be 0 or larger."); }
             _armor = armor;

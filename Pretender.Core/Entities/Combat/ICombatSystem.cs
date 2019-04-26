@@ -19,9 +19,43 @@
  *
  ************************************************************************/
 
+using Pretender.Entities.Combat.Abilities;
+
 namespace Pretender.Entities.Combat
 {
     public interface ICombatSystem
+    {
+        void Handle(AttackCommand attackCommand);
+    }
+
+    public class AttackCommand : ICommand
+    {
+        public AttackCommand()
+        {
+        }
+
+        public IEntity Target { get; set; }
+        public IAbility Ability { get; set; }
+        public IEntity Initiator { get; set; }
+    }
+
+    public interface ICommand
+    {
+        IEntity Initiator { get; }
+    }
+
+    public class AttackFailed : IEvent
+    {
+        public IEntity Initiator { get; set; }
+    }
+
+    public class AttackSucceeded : IEvent
+    {
+        public IEntity Target { get; set; }
+        public IDamage Damage { get; set; }
+    }
+
+    public interface IEvent
     {
     }
 }

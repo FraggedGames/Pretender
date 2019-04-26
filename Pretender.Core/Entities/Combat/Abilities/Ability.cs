@@ -20,6 +20,7 @@
  ************************************************************************/
 
 using System;
+using System.Collections.Generic;
 using Pretender.Entities.Combat.Costs;
 using Pretender.Entities.Combat.Effects;
 
@@ -27,6 +28,8 @@ namespace Pretender.Entities.Combat.Abilities
 {
     public abstract class Ability : IAbility
     {
+        private readonly ICollection<ICondition> _conditions = new List<ICondition>();
+
         public ISchool School { get; }
         public ICost Cost { get; set; }
         public Int32 Charges { get; } = 1;
@@ -39,5 +42,17 @@ namespace Pretender.Entities.Combat.Abilities
         public AbilityFlags Flags { get; set; }
         public IDamage Damage { get; set; }
         public IDamage DamageOverTime { get; set; }
+
+        public ICollection<ICondition> Conditions => _conditions;
+
+        protected void AddCondition(ICondition condition)
+        {
+            if (condition == null)
+            {
+                throw new ArgumentNullException(nameof(condition));
+            }
+
+            _conditions.Add(condition);
+        }
     }
 }

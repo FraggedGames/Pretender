@@ -19,33 +19,10 @@
  *
  ************************************************************************/
 
-using Moq;
-using Pretender.Entities.Players;
-using Shouldly;
-using Xunit;
-
-namespace Pretender.Worlds
+namespace Pretender.Entities.Combat.Abilities
 {
-    public class WorldTests
+    public interface ICondition
     {
-        [Fact]
-        public void Can_instantiate_a_World()
-        {
-            IWorld world = new World();
-
-            world.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public void Can_add_Player_to_World()
-        {
-            var mock = new Mock<IPlayer>();
-            IWorld world = new World();
-
-
-            world.AddPlayer(mock.Object);
-
-            world.Players.Count.ShouldBe(1);
-        }
+        System.Boolean IsStatisfied(IEntity initiator, IEntity target);
     }
 }

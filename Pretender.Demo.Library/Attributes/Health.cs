@@ -29,9 +29,9 @@ namespace Pretender.Demo.Library.Attributes
 {
     public class Health : EntityAttribute
     {
-        public override Int32 Base => 100;
+        public override UInt32 Base => 100;
 
-        public override Int32 Calculate()
+        public override UInt32 Calculate()
         {
             Total = Base;
             foreach (var item in Entity.Equipment)

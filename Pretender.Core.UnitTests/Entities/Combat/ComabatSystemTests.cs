@@ -19,7 +19,8 @@
  *
  ************************************************************************/
 
-using System;
+using Moq;
+using Pretender.Entities.Combat.Abilities.Rogues;
 using Pretender.Entities.Mobs;
 using Pretender.Entities.Players;
 using Xunit;
@@ -32,13 +33,22 @@ namespace Pretender.Entities.Combat
         public void Player_can_attack_a_Mob()
         {
             // Arrange
-            var player = new PlayerBuilder<Player>().Build();
-            var mob = new MobBuilder().Build();
-            ICombatSystem combatSystem = new CombatSystem();
+            var player = new Mock<IPlayer>();
+            var spell = new SinisterStrike();
+            var damage = new Mock<IDamage>();
+
+            var mob = new Mock<IMob>();
+
+            var bus = new Mock<IEventBus>();
+
+            ICombatSystem combatSystem = new CombatSystem(bus.Object);
 
             // Act
+            combatSystem.Handle(new AttackCommand() { Initiator = player.Object, Target = mob.Object, Ability = spell });
 
             // Assert
+            bus.Verify(b => b.Publish(It.IsAny<AttackSucceeded>()));
+
         }
     }
 }

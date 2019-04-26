@@ -29,12 +29,12 @@ namespace Pretender.Demo.Library
 {
     public class PlayerCharacter : Player, IPlayerCharacter
     {
-        public Int32 Agility => Attributes.GetValue<Agility, Int32>(a => a.Current);
-        public Int32 Armor => Attributes.GetValue<Armor, Int32>(a => a.Current);
-        public Int32 Health => Attributes.GetValue<Health, Int32>(a => a.Current);
-        public Int32 Intellect => Attributes.GetValue<Intellect, Int32>(a => a.Current);
-        public Int32 Mana => Attributes.GetValue<Mana, Int32>(a => a.Current);
-        public Int32 Stamina => Attributes.GetValue<Stamina, Int32>(a => a.Current);
-        public Int32 Strength => Attributes.GetValue<Strength, Int32>(a => a.Current);
+        public UInt32 Agility => Attributes.GetValue<Agility, UInt32>(a => a.Current);
+        public UInt32 Armor => Attributes.GetValue<Armor, UInt32>(a => a.Current);
+        public UInt32 Health => Attributes.GetValue<Health, UInt32>(a => a.Current);
+        public UInt32 Intellect => Attributes.GetValue<Intellect, UInt32>(a => a.Current);
+        public UInt32 Mana => Attributes.GetValue<Mana, UInt32>(a => a.Current);
+        public UInt32 Stamina => Attributes.GetValue<Stamina, UInt32>(a => a.Current);
+        public UInt32 Strength => Attributes.GetValue<Strength, UInt32>(a => a.Current);
     }
 }

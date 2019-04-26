@@ -19,9 +19,25 @@
  *
  ************************************************************************/
 
+using System;
+
 namespace Pretender.Entities.Combat.Abilities.Rogues
 {
     public class SinisterStrike : Ability
+    {
+        public SinisterStrike()
+        {
+            AddCondition(new BehindTarget());
+        }
+
+    }
+
+    public abstract class Condition : ICondition
+    {
+        public virtual Boolean IsStatisfied(IEntity initiator, IEntity target) => true;
+    }
+
+    public class BehindTarget : Condition
     {
     }
 }

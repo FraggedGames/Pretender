@@ -20,6 +20,7 @@
  ************************************************************************/
 
 using System;
+using System.Collections.Generic;
 using Pretender.Entities.Combat.Costs;
 using Pretender.Entities.Combat.Effects;
 
@@ -40,6 +41,9 @@ namespace Pretender.Entities.Combat.Abilities
 
         IEffect Effect { get; }
         AbilityFlags Flags { get; set; }
+
+        ICollection<ICondition> Conditions { get; }
+
     }
 
     [Flags]

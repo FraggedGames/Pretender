@@ -20,6 +20,8 @@
  ************************************************************************/
 
 using System;
+using System.Numerics;
+using System.Threading.Tasks;
 using Pretender.Collections.Generic;
 using Pretender.Entities.Attributes;
 using Pretender.Entities.Combat;
@@ -28,6 +30,7 @@ using Pretender.Entities.Combat.Effects;
 using Pretender.Entities.Enhancements;
 using Pretender.Entities.Pets;
 using Pretender.Entities.Traits;
+using Pretender.GameEngine;
 using Pretender.Items.Equipment;
 using Pretender.Items.Equipment.Armor;
 using Pretender.Items.Equipment.Weapons;
@@ -62,6 +65,10 @@ namespace Pretender.Entities
         public Material Wears { get; set; }
         public WeaponType Wields { get; set; }
         public IPetEntity Pet { get; }
+        public Int32 ID { get; set; }
+        public IMap Map { get; set; }
+        public Vector4 Position { get; set; }
+        public Vector4 Orientation { get; set; }
 
         public event EventHandler<EventArgs> EquipmentChanged;
 
@@ -70,5 +77,42 @@ namespace Pretender.Entities
         public event EventHandler<DamageEventArgs> DamageReceived;
 
         public void OnDamageReceived(IDamage damage) => DamageReceived?.Invoke(this, new DamageEventArgs(damage));
+        public virtual Task Update(Double elapsed) => Task.CompletedTask;
+
+        #region IDisposable Support
+        private Boolean _disposed = false; // To detect redundant calls
+
+        protected virtual void Dispose(Boolean disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects).
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+                // TODO: set large fields to null.
+
+                _disposed = true;
+            }
+        }
+
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        // ~Entity()
+        // {
+        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        //   Dispose(false);
+        // }
+
+        // This code added to correctly implement the disposable pattern.
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // TODO: uncomment the following line if the finalizer is overridden above.
+            // GC.SuppressFinalize(this);
+        }
+        #endregion
     }
 }

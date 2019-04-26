@@ -25,5 +25,35 @@ namespace Pretender.Entities.Combat
 {
     public class CombatSystem : ICombatSystem
     {
+        private readonly IEventBus _eventBus;
+
+        public CombatSystem(IEventBus eventBus)
+        {
+            _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
+        }
+
+        public void Handle(AttackCommand command)
+        {
+            // Check Conditions
+            foreach(var condition in command.Ability.Conditions)
+            {
+                if (!condition.IsStatisfied(command.Initiator, command.Target))
+                {
+                    _eventBus.Publish(new AttackFailed() { Initiator = command.Initiator });
+                }
+            }
+
+            // Compute Attack
+
+
+            // Apply Damage
+            _eventBus.Publish(new AttackSucceeded() { Target = command.Target, Damage = command.Ability.Damage });
+        }
+    }
+
+    public interface IEventBus
+    {
+        void Publish(AttackFailed attackFailed);
+        void Publish(AttackSucceeded attackSucceeded);
     }
 }

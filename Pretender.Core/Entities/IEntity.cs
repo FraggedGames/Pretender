@@ -28,13 +28,14 @@ using Pretender.Entities.Combat.Effects;
 using Pretender.Entities.Enhancements;
 using Pretender.Entities.Pets;
 using Pretender.Entities.Traits;
+using Pretender.GameEngine;
 using Pretender.Items.Equipment;
 using Pretender.Items.Equipment.Armor;
 using Pretender.Items.Equipment.Weapons;
 
 namespace Pretender.Entities
 {
-    public interface IEntity
+    public interface IEntity : IGameObject
     {
         ITypedCollection<IEntityAttribute> Attributes { get; }
         ITypedCollection<IAbility> Abilities { get; }

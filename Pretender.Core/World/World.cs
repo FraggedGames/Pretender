@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Pretender.Worlds
+namespace Pretender.World
 {
     public class World : IWorld
     {

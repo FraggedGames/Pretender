@@ -31,6 +31,6 @@ namespace Pretender.Items.Equipment
         public BindsOn BindsOn { get; set; }
         public EquipmentSlot EquipmentSlot { get; set; }
 
-        public Int32 Stamina => Attributes.SingleOrDefault(a => a is StaminaItemAttribute)?.Base ?? 0;
+        public UInt32 Stamina => Attributes.SingleOrDefault(a => a is StaminaItemAttribute)?.Base ?? 0;
     }
 }

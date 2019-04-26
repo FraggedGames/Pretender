@@ -27,8 +27,8 @@ namespace Pretender.Entities.Attributes
     {
         IEntityAttribute SetEntity(IEntity entity);
 
-        IEntityAttribute SetBase(Int32 value);
+        IEntityAttribute SetBase(UInt32 value);
 
-        Int32 Calculate();
+        UInt32 Calculate();
     }
 }

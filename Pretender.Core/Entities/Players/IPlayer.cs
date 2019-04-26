@@ -19,6 +19,7 @@
  *
  ************************************************************************/
 
+using Pretender.GameEngine;
 using Pretender.Items.Equipment.Armor;
 using Pretender.Items.Equipment.Weapons;
 using System;
@@ -27,7 +28,6 @@ namespace Pretender.Entities.Players
 {
     public interface IPlayer : IEntity
     {
-        Int32 ID { get; }
         IInventoryManager Inventory { get; }
         new Material Wears { get; set; }
         new WeaponType Wields { get; set; }

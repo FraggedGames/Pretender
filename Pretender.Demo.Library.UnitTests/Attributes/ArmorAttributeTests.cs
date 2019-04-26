@@ -39,9 +39,9 @@ namespace Pretender.Demo.Library
             var entity = new Entity();
             var armor = new Armor().SetEntity(entity);
 
-            armor.Base.ShouldBe(0);
-            armor.Total.ShouldBe(0);
-            armor.Current.ShouldBe(0);
+            armor.Base.ShouldBe(0u);
+            armor.Total.ShouldBe(0u);
+            armor.Current.ShouldBe(0u);
         }
 
         [Fact]

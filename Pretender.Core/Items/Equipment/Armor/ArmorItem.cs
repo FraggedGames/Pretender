@@ -29,7 +29,7 @@ namespace Pretender.Items.Equipment.Armor
     {
         public static IArmor Empty = new EmptyItem();
         public Material Material { get; set; }
-        public Int32 Armor => Attributes.SingleOrDefault(a => a is ArmorItemAttribute)?.Base ?? 0;
+        public override UInt32 Armor => Attributes.SingleOrDefault(a => a is ArmorItemAttribute)?.Base ?? 0;
 
         private class EmptyItem : ArmorItem { }
     }

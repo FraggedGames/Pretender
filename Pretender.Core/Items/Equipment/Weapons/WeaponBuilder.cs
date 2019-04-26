@@ -46,7 +46,7 @@ namespace Pretender.Items.Equipment.Weapons
             return this;
         }
 
-        public WeaponBuilder Dagger(Int32 damage)
+        public WeaponBuilder Dagger(UInt32 damage)
         {
             _weaponType = WeaponType.Dagger;
             _equipmentSlot = EquipmentSlot.MainHand | EquipmentSlot.OffHand;

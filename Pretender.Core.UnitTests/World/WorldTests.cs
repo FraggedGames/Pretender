@@ -19,26 +19,33 @@
  *
  ************************************************************************/
 
+using Moq;
+using Pretender.Entities.Players;
 using Shouldly;
 using Xunit;
-namespace Pretender.Games
+
+namespace Pretender.World
 {
-    public class GameTests
+    public class WorldTests
     {
         [Fact]
-        public void Can_instantiate_a_Game()
+        public void Can_instantiate_a_World()
         {
-            IGame game = new Game();
+            IWorld world = new World();
 
-            game.ShouldNotBeNull();
+            world.ShouldNotBeNull();
         }
-    }
 
-    public class Game : IGame
-    {
-    }
+        [Fact]
+        public void Can_add_Player_to_World()
+        {
+            var mock = new Mock<IPlayer>();
+            IWorld world = new World();
 
-    public interface IGame
-    {
+
+            world.AddPlayer(mock.Object);
+
+            world.Players.Count.ShouldBe(1);
+        }
     }
 }

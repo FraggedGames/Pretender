@@ -29,6 +29,6 @@ namespace Pretender.Items.Equipment
         BindsOn BindsOn { get; }
         EquipmentSlot EquipmentSlot { get; }
 
-        Int32 Stamina { get; }
+        UInt32 Stamina { get; }
     }
 }

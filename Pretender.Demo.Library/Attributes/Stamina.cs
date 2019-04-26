@@ -28,7 +28,7 @@ namespace Pretender.Demo.Library.Attributes
 {
     public class Stamina : EntityAttribute
     {
-        public Stamina(Int32 value)
+        public Stamina(UInt32 value)
         {
             SetBase(value);
         }
