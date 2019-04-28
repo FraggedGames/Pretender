@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pretender.Core.UnitTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pretender.Server", "Pretender.Server\Pretender.Server.csproj", "{F57BB9A7-7B1C-43E9-842A-AAF12D9154F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pretender.UI", "Pretender.UI\Pretender.UI.csproj", "{DBCA151B-4724-4177-8611-4271434397DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{F57BB9A7-7B1C-43E9-842A-AAF12D9154F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F57BB9A7-7B1C-43E9-842A-AAF12D9154F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F57BB9A7-7B1C-43E9-842A-AAF12D9154F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBCA151B-4724-4177-8611-4271434397DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBCA151B-4724-4177-8611-4271434397DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBCA151B-4724-4177-8611-4271434397DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBCA151B-4724-4177-8611-4271434397DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
