@@ -26,6 +26,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Pretender.GameEngine;
 using System.Reflection;
 
 namespace Pretender.Server
@@ -45,10 +46,13 @@ namespace Pretender.Server
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddMvc()
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-            .AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<Startup>());
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<Startup>());
 
             services.Configure<PretenderConfig>(Configuration.GetSection(nameof(PretenderConfig)));
+
+            services.AddSignalR()
+                .AddMessagePackProtocol();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +69,12 @@ namespace Pretender.Server
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<GameHub>("/gameHub");
+            });
+
             app.UseMvc();
         }
     }

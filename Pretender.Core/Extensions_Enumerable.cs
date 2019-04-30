@@ -31,4 +31,16 @@ namespace Pretender
             foreach (var item in list) { action(item); }
         }
     }
+
+    public static class Extensions_String
+    {
+        public static String NotNullEmptyOrWhitespace(this String value, String parameterName)
+        {
+            if (String.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentNullException(parameterName);
+            }
+            return value;
+        }
+    }
 }

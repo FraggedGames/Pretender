@@ -24,7 +24,6 @@ using System.Collections.Generic;
 using Pretender.Entities.Combat;
 using Pretender.GameEngine;
 using Pretender.Items.Attributes;
-using Pretender.Spells;
 
 namespace Pretender.Items
 {
@@ -44,13 +43,10 @@ namespace Pretender.Items
         public Int32 BuyPrice { get; set; }
         public Int32 SellPrice { get; set; }
         public InventoryType InventoryType { get; set; }
-        public Class AllowableClass { get; set; }
-        public Race AllowableRace { get; set; }
         public UInt16 ItemLevel { get; set; }
         public UInt16 RequiredLevel { get; set; }
         public UInt32 RequiredSkill { get; set; }
         public UInt32 RequiredSkillRank { get; set; }
-        public ISpell RequiredSpell { get; set; }
         public UInt16 RequiredHonorRank { get; set; }
         public UInt16 RequiredCityRank { get; set; }
         public UInt16 RequiredReputationFaction { get; set; }

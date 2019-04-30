@@ -24,7 +24,6 @@ using System.Collections.Generic;
 using Pretender.Entities.Combat;
 using Pretender.GameEngine;
 using Pretender.Items.Attributes;
-using Pretender.Spells;
 
 namespace Pretender.Items
 {
@@ -38,16 +37,11 @@ namespace Pretender.Items
         Int32 SellPrice { get; set; }
         InventoryType InventoryType { get; set; }
 
-        Class AllowableClass { get; set; }
-
-        Race AllowableRace { get; set; }
-
         UInt16 ItemLevel { get; set; }
         UInt16 RequiredLevel { get; set; }
         UInt32 RequiredSkill { get; set; }
         UInt32 RequiredSkillRank { get; set; }
 
-        ISpell RequiredSpell { get; set; }
         UInt16 RequiredHonorRank { get; set; }
         UInt16 RequiredCityRank { get; set; }
         UInt16 RequiredReputationFaction { get; set; }
@@ -68,23 +62,10 @@ namespace Pretender.Items
 
         IAmmo Ammo { get; set; }
 
-
         String Description { get; set; }
         String PageText { get; set; }
         IMap Map { get; set; }
         IScript Script { get; set; }
         ICollection<IItemAttribute> Attributes { get; }
     }
-
-
-    [Flags]
-    public enum InventoryType
-    {
-    }
-
-    [Flags]
-    public enum Quality
-    {
-    }
-
 }

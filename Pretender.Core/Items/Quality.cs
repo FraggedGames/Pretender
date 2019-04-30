@@ -19,15 +19,12 @@
  *
  ************************************************************************/
 
-namespace Pretender.Entities.Players
-{
-    public class InventoryManager : IInventoryManager
-    {
-        private readonly IPlayer _player;
+using System;
 
-        public InventoryManager(IPlayer player)
-        {
-            _player = player ?? throw new System.ArgumentNullException(nameof(player));
-        }
+namespace Pretender.Items
+{
+    [Flags]
+    public enum Quality
+    {
     }
 }

@@ -20,10 +20,10 @@
  ************************************************************************/
 
 using Moq;
-using Pretender.Entities.Players;
+using Pretender.Database;
 using Shouldly;
-using System;
 using Xunit;
+
 namespace Pretender.GameEngine
 {
     public class GameTests
@@ -31,7 +31,8 @@ namespace Pretender.GameEngine
         [Fact]
         public void Can_instantiate_a_Game()
         {
-            using (IGame game = new Game(new GameOptions()))
+            var mDatabase = new Mock<IDatabase>();
+            using (IGame game = new Game(new GameOptions(), mDatabase.Object))
             {
                 game.ShouldNotBeNull();
             }
@@ -40,11 +41,12 @@ namespace Pretender.GameEngine
         [Fact]
         public void Can_add_a_Player_to_a_Game()
         {
-            var mock = new Mock<IPlayer>();
+            var mPlayer = new Mock<IPlayer>();
 
-            using (IGame game = new Game(new GameOptions()))
+            var mDatabase = new Mock<IDatabase>();
+            using (IGame game = new Game(new GameOptions(), mDatabase.Object))
             {
-                game.AddPlayer(mock.Object);
+                game.AddPlayerAsync(mPlayer.Object);
 
                 game.Players.Count.ShouldBe(1);
             }
@@ -53,17 +55,18 @@ namespace Pretender.GameEngine
         [Fact]
         public void Player_are_disposed_when_the_Game_is_disposed()
         {
-            var mock = new Mock<IPlayer>();
-            mock.Setup(m => m.Dispose()).Verifiable();
+            var mPlayer = new Mock<IPlayer>();
+            mPlayer.Setup(m => m.Dispose()).Verifiable();
 
-            using (IGame game = new Game(new GameOptions()))
+            var mDatabase = new Mock<IDatabase>();
+            using (IGame game = new Game(new GameOptions(), mDatabase.Object))
             {
-                game.AddPlayer(mock.Object);
+                game.AddPlayerAsync(mPlayer.Object);
 
                 game.Players.Count.ShouldBe(1);
             }
 
-            mock.Verify();
+            mPlayer.Verify();
         }
     }
 }

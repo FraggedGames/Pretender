@@ -55,4 +55,19 @@ namespace Pretender.Entities.Combat.Abilities
             _conditions.Add(condition);
         }
     }
+
+    public abstract class InstantAbility : Ability
+    {
+
+    }
+
+    public abstract class ChanneledAbility : Ability
+    {
+
+    }
+
+    public abstract class CastAbility : Ability
+    {
+
+    }
 }

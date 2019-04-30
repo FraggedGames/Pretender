@@ -19,9 +19,33 @@
  *
  ************************************************************************/
 
-namespace Pretender.Entities.Combat.Abilities.Mages
+using System;
+
+namespace Pretender.Entities.Characters
 {
-    public class FostNova : InstantAbility
+    public class CharacterBuilder<T> : EntityBuilder<T, CharacterBuilder<T>>, IEntityBuilder<T>
+        where T : ICharacter, new()
     {
+        public CharacterBuilder()
+        {
+        }
+
+        protected override CharacterBuilder<T> Builder => this;
+
+        public override T Build()
+        {
+            var player = new T()
+            {
+                Wears = Material,
+                Wields = WeaponType
+            };
+
+            // The order here matters as some attributes have dependencies
+            Equipment.Each(item => player.Equipment.Equip(item));
+            Abilities.Each(ability => { player.Abilities.Add(ability); });
+            Attributes.Each(attribute => { attribute.SetEntity(player); player.Attributes.Add(attribute); });
+
+            return player;
+        }
     }
 }

@@ -24,7 +24,7 @@ using Pretender.Entities.Combat.Costs;
 
 namespace Pretender.Entities.Combat.Abilities.Druids
 {
-    public class MoonFire : Ability
+    public class MoonFire : InstantAbility
     {
         public MoonFire()
         {

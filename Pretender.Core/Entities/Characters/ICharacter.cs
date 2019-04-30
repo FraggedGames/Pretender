@@ -19,33 +19,25 @@
  *
  ************************************************************************/
 
+using Pretender.GameEngine;
+using Pretender.Items.Equipment.Armor;
+using Pretender.Items.Equipment.Weapons;
 using System;
 
-namespace Pretender.Entities.Players
+namespace Pretender.Entities.Characters
 {
-    public class PlayerBuilder<T> : EntityBuilder<T, PlayerBuilder<T>>, IEntityBuilder<T>
-        where T : IPlayer, new()
+    public interface ICharacter : IEntity
     {
-        public PlayerBuilder()
-        {
-        }
+        IInventoryManager Inventory { get; }
+        new Material Wears { get; set; }
+        new WeaponType Wields { get; set; }
 
-        protected override PlayerBuilder<T> Builder => this;
-
-        public override T Build()
-        {
-            var player = new T()
-            {
-                Wears = Material,
-                Wields = WeaponType
-            };
-
-            // The order here matters as some attributes have dependencies
-            Equipment.Each(item => player.Equipment.Equip(item));
-            Abilities.Each(ability => { player.Abilities.Add(ability); });
-            Attributes.Each(attribute => { attribute.SetEntity(player); player.Attributes.Add(attribute); });
-
-            return player;
-        }
+        UInt32 Agility { get; }
+        UInt32 Armor { get; }
+        UInt32 Health { get; }
+        UInt32 Intellect { get; }
+        UInt32 Mana { get; }
+        UInt32 Stamina { get; }
+        UInt32 Strength { get; }
     }
 }

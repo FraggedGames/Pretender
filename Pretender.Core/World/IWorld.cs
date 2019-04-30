@@ -1,12 +1,12 @@
-﻿using Pretender.Entities.Players;
+﻿using Pretender.Entities.Characters;
 using System.Collections.Generic;
 
 namespace Pretender.World
 {
     public interface IWorld
     {
-        ICollection<IPlayer> Players { get; }
+        ICollection<ICharacter> Characters { get; }
 
-        void AddPlayer(IPlayer player);
+        void AddCharacter(ICharacter character);
     }
 }

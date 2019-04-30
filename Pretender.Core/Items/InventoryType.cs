@@ -20,17 +20,11 @@
  ************************************************************************/
 
 using System;
-using System.Threading.Tasks;
 
-namespace Pretender.Entities.Players
+namespace Pretender.Items
 {
-    public class Player : Entity, IPlayer
+    [Flags]
+    public enum InventoryType
     {
-        public Player()
-        {
-            Inventory = new InventoryManager(this);
-        }
-
-        public IInventoryManager Inventory { get; }
     }
 }

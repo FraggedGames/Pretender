@@ -1,11 +1,5 @@
-﻿using Pretender.Entities.Combat;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Net.Http.Headers;
+﻿using System;
 using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace Pretender.GameEngine
@@ -30,14 +24,5 @@ namespace Pretender.GameEngine
     public interface IMap
     {
         Int32 ID { get; set; }
-    }
-
-    [Flags]
-    public enum Class
-    {
-    }
-    [Flags]
-    public enum Race
-    {
     }
 }

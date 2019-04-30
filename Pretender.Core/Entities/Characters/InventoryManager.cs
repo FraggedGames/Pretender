@@ -19,9 +19,15 @@
  *
  ************************************************************************/
 
-namespace Pretender.Entities.Players
+namespace Pretender.Entities.Characters
 {
-    public interface IInventoryManager
+    public class InventoryManager : IInventoryManager
     {
+        private readonly ICharacter _player;
+
+        public InventoryManager(ICharacter player)
+        {
+            _player = player ?? throw new System.ArgumentNullException(nameof(player));
+        }
     }
 }

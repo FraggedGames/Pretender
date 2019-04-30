@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pretender.Core.UnitTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pretender.Server", "Pretender.Server\Pretender.Server.csproj", "{F57BB9A7-7B1C-43E9-842A-AAF12D9154F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pretender.UI", "Pretender.UI\Pretender.UI.csproj", "{DBCA151B-4724-4177-8611-4271434397DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pretender.Messages", "Pretender.Messages\Pretender.Messages.csproj", "{3F553318-48B9-4F10-AAC1-981138857A21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,15 +37,31 @@ Global
 		{F57BB9A7-7B1C-43E9-842A-AAF12D9154F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F57BB9A7-7B1C-43E9-842A-AAF12D9154F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F57BB9A7-7B1C-43E9-842A-AAF12D9154F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBCA151B-4724-4177-8611-4271434397DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBCA151B-4724-4177-8611-4271434397DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBCA151B-4724-4177-8611-4271434397DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBCA151B-4724-4177-8611-4271434397DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F553318-48B9-4F10-AAC1-981138857A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F553318-48B9-4F10-AAC1-981138857A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F553318-48B9-4F10-AAC1-981138857A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F553318-48B9-4F10-AAC1-981138857A21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1581193F-B9FD-4E2A-BD07-4795C44C0BEE}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.TextStylePolicy = $4
+		$4.FileWidth = 80
+		$4.NoTabsAfterNonTabs = True
+		$4.EolMarker = Windows
+		$4.scope = text/plain
+		$0.VersionControlPolicy = $5
 	EndGlobalSection
 EndGlobal

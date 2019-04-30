@@ -20,7 +20,7 @@
  ************************************************************************/
 
 using Moq;
-using Pretender.Entities.Players;
+using Pretender.Entities.Characters;
 using Shouldly;
 using Xunit;
 
@@ -37,15 +37,15 @@ namespace Pretender.World
         }
 
         [Fact]
-        public void Can_add_Player_to_World()
+        public void Can_add_Chacters_to_World()
         {
-            var mock = new Mock<IPlayer>();
+            var mock = new Mock<ICharacter>();
             IWorld world = new World();
 
 
-            world.AddPlayer(mock.Object);
+            world.AddCharacter(mock.Object);
 
-            world.Players.Count.ShouldBe(1);
+            world.Characters.Count.ShouldBe(1);
         }
     }
 }

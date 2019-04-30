@@ -44,6 +44,11 @@ namespace Pretender.Entities.Combat
         IEntity Initiator { get; }
     }
 
+    public class AttackInterupted : IEvent
+    {
+
+    }
+
     public class AttackFailed : IEvent
     {
         public IEntity Initiator { get; set; }

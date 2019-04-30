@@ -20,9 +20,10 @@
  ************************************************************************/
 
 using Moq;
+using Pretender.Entities.Combat.Abilities.Mages;
 using Pretender.Entities.Combat.Abilities.Rogues;
 using Pretender.Entities.Mobs;
-using Pretender.Entities.Players;
+using Pretender.Entities.Characters;
 using Xunit;
 
 namespace Pretender.Entities.Combat
@@ -33,21 +34,33 @@ namespace Pretender.Entities.Combat
         public void Player_can_attack_a_Mob()
         {
             // Arrange
-            var player = new Mock<IPlayer>();
-            var spell = new SinisterStrike();
-            var damage = new Mock<IDamage>();
+            var mPlayer = new Mock<ICharacter>();
+            var ability = new SinisterStrike();
 
-            var mob = new Mock<IMob>();
+            var mMob = new Mock<IMob>();
 
-            var bus = new Mock<IEventBus>();
+            var mBus = new Mock<IEventBus>();
 
-            ICombatSystem combatSystem = new CombatSystem(bus.Object);
+            ICombatSystem combatSystem = new CombatSystem(mBus.Object);
 
             // Act
-            combatSystem.Handle(new AttackCommand() { Initiator = player.Object, Target = mob.Object, Ability = spell });
+            combatSystem.Handle(new AttackCommand() { Initiator = mPlayer.Object, Target = mMob.Object, Ability = ability });
 
             // Assert
-            bus.Verify(b => b.Publish(It.IsAny<AttackSucceeded>()));
+            mBus.Verify(b => b.Publish(It.IsAny<AttackSucceeded>()));
+        }
+
+        [Fact]
+        public void Cast_attack_takes_time_to_cast()
+        {
+            var ability = new Fireball();
+            var mPlayer = new Mock<ICharacter>();
+            var mMob = new Mock<IMob>();
+            var mBus = new Mock<IEventBus>();
+
+            ICombatSystem combatSystem = new CombatSystem(mBus.Object);
+
+
 
         }
     }

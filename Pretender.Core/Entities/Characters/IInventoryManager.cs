@@ -19,17 +19,9 @@
  *
  ************************************************************************/
 
-using Pretender.GameEngine;
-using Pretender.Items.Equipment.Armor;
-using Pretender.Items.Equipment.Weapons;
-using System;
-
-namespace Pretender.Entities.Players
+namespace Pretender.Entities.Characters
 {
-    public interface IPlayer : IEntity
+    public interface IInventoryManager
     {
-        IInventoryManager Inventory { get; }
-        new Material Wears { get; set; }
-        new WeaponType Wields { get; set; }
     }
 }

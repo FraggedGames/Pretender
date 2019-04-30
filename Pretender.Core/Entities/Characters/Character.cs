@@ -19,9 +19,27 @@
  *
  ************************************************************************/
 
-namespace Pretender.Entities.Combat.Abilities.Mages
+using System;
+using System.Threading.Tasks;
+using Pretender.Entities.Attributes;
+
+namespace Pretender.Entities.Characters
 {
-    public class FostNova : InstantAbility
+    public class Character : Entity, ICharacter
     {
+        public Character()
+        {
+            Inventory = new InventoryManager(this);
+        }
+
+        public IInventoryManager Inventory { get; }
+
+        public UInt32 Agility => Attributes.GetValue<Agility, UInt32>(a => a.Current);
+        public UInt32 Armor => Attributes.GetValue<Armor, UInt32>(a => a.Current);
+        public UInt32 Health => Attributes.GetValue<Health, UInt32>(a => a.Current);
+        public UInt32 Intellect => Attributes.GetValue<Intellect, UInt32>(a => a.Current);
+        public UInt32 Mana => Attributes.GetValue<Mana, UInt32>(a => a.Current);
+        public UInt32 Stamina => Attributes.GetValue<Stamina, UInt32>(a => a.Current);
+        public UInt32 Strength => Attributes.GetValue<Strength, UInt32>(a => a.Current);
     }
 }

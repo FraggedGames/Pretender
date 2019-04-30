@@ -1,4 +1,4 @@
-﻿using Pretender.Entities.Players;
+﻿using Pretender.Entities.Characters;
 using System;
 using System.Collections.Generic;
 
@@ -6,18 +6,18 @@ namespace Pretender.World
 {
     public class World : IWorld
     {
-        private IDictionary<Int32, IPlayer> _players = new Dictionary<Int32, IPlayer>();
+        private IDictionary<Int32, ICharacter> _players = new Dictionary<Int32, ICharacter>();
 
-        public ICollection<IPlayer> Players => _players.Values;
+        public ICollection<ICharacter> Characters => _players.Values;
 
-        public void AddPlayer(IPlayer player)
+        public void AddCharacter(ICharacter character)
         {
-            if (player == null)
+            if (character == null)
             {
-                throw new ArgumentNullException(nameof(player));
+                throw new ArgumentNullException(nameof(character));
             }
 
-            _players.Add(player.ID, player);
+            _players.Add(character.ID, character);
         }
     }
 }
